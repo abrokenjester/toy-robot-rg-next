@@ -34,6 +34,51 @@ describe 'robot' do
         expect(robot.position_y).to eql(1)
       end
     end
-  end
 
+    context 'when facing west' do
+      let(:robot) { Robot.new(2, 2, 'W') }
+      it 'moves west' do
+        robot.move
+        expect(robot.position_x).to eql(1)
+      end
+    end
+
+    context 'when facing east' do
+      let(:robot) { Robot.new(2, 2, 'E') }
+      it 'moves east' do
+        robot.move
+        expect(robot.position_x).to eql(3)
+      end
+    end
+  end
+  describe 'left' do
+    context 'turns left' do
+      let(:robot) { Robot.new(2, 2, 'N') }
+      it 'changes facing to west' do
+        robot.left
+        expect(robot.facing).to eql('W')
+      end
+    end
+    context 'turns left' do
+      let(:robot) { Robot.new(2, 2, 'W') }
+      it 'changes facing to west' do
+        robot.left
+        expect(robot.facing).to eql('S')
+      end
+    end
+    context 'turns left' do
+      let(:robot) { Robot.new(2, 2, 'S') }
+      it 'changes facing to west' do
+        robot.left
+        expect(robot.facing).to eql('E')
+      end
+    end
+    context 'turns left' do
+      let(:robot) { Robot.new(2, 2, 'E') }
+      it 'changes facing to west' do
+        robot.left
+        expect(robot.facing).to eql('N')
+      end
+    end
+  end
 end

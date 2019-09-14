@@ -15,6 +15,23 @@ class Robot
       @position_y += 1
     when 'S'
       @position_y -= 1
+    when 'W'
+      @position_x -= 1
+    when 'E'
+      @position_x += 1
+    end
+  end
+
+  def left
+    case @facing
+    when 'N'
+      @facing = 'W'
+    when 'W'
+      @facing = 'S'
+    when 'S'
+      @facing = 'E'
+    when 'E'
+      @facing = 'N'
     end
   end
 end
