@@ -34,4 +34,17 @@ class Robot
       @facing = 'N'
     end
   end
+
+  def right
+    case @facing
+    when 'N'
+      @facing = 'E'
+    when 'W'
+      @facing = 'N'
+    when 'S'
+      @facing = 'W'
+    when 'E'
+      @facing = 'S'
+    end
+  end
 end
