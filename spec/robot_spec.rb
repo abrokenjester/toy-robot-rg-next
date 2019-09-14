@@ -18,9 +18,21 @@ describe 'robot' do
     end
   end
 
-  decribe 'move' do
-    it 'moves' do
-      expect(robot.move).to
+  describe 'move' do
+    context 'when facing north' do
+      let(:robot) { Robot.new(2, 2, 'N') }
+      it 'moves north' do
+        robot.move
+        expect(robot.position_y).to eql(3)
+      end
+    end
+
+    context 'when facing south' do
+      let(:robot) { Robot.new(2, 2, 'S') }
+      it 'moves south' do
+        robot.move
+        expect(robot.position_y).to eql(1)
+      end
     end
   end
 
