@@ -47,4 +47,8 @@ class Robot
       @facing = 'S'
     end
   end
+
+  def report
+    "The position x is #{@position_x}, position y is #{@position_y} and the facing is #{facing}."
+  end
 end

@@ -112,4 +112,10 @@ describe 'robot' do
       end
     end
   end
+  describe 'report' do
+    let(:robot) { Robot.new(2, 2, 'E') }
+    it 'reports the position' do
+      expect(robot.report).to eql('The position x is 2, position y is 2 and the facing is E.')
+    end
+  end
 end
