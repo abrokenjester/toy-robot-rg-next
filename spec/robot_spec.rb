@@ -112,10 +112,27 @@ describe 'robot' do
       end
     end
   end
+
   describe 'report' do
     let(:robot) { Robot.new(2, 2, 'E') }
     it 'reports the position' do
       expect(robot.report).to eql('The position x is 2, position y is 2 and the facing is E.')
+    end
+  end
+
+  describe 'place' do
+    it 'places robots on the gird if the position is valid' do
+      robot.place(3, 3, 'N')
+      expect(robot.facing).to eql('N')
+      expect(robot.position_x).to eql(3)
+      expect(robot.position_y).to eql(3)
+    end
+
+    it 'doesnt places robots on the gird if the position invalid' do
+      robot.place(5, 5, 'N')
+      expect(robot.facing).to eql('N')
+      expect(robot.position_x).to eql(0)
+      expect(robot.position_y).to eql(0)
     end
   end
 end

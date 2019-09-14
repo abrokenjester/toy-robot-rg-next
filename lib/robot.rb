@@ -51,4 +51,14 @@ class Robot
   def report
     "The position x is #{@position_x}, position y is #{@position_y} and the facing is #{facing}."
   end
+
+  def place(x, y, f)
+    if x < 5 && y < 5
+      @position_x = x
+      @position_y = y
+      @facing = f
+    else
+      puts 'Position invalid'
+    end
+  end
 end
