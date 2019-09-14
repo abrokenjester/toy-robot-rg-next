@@ -135,4 +135,28 @@ describe 'robot' do
       expect(robot.position_y).to eql(0)
     end
   end
+  describe 'command_digest' do
+    it 'digest the move command' do
+      robot.command_digest('move')
+      expect(robot.position_y).to eql(1)
+    end
+    it 'digest the left command' do
+      robot.command_digest('left')
+      expect(robot.facing).to eql('W')
+    end
+    it 'digest the right command' do
+      robot.command_digest('right')
+      expect(robot.facing).to eql('E')
+    end
+    it 'digest the report command' do
+      robot.command_digest('report')
+      expect(robot.report).to eql('The position x is 0, position y is 0 and the facing is N.')
+    end
+    it 'digest the place command' do
+      robot.command_digest("place(1,1,'N')")
+      expect(robot.position_x).to eql(1)
+      expect(robot.position_y).to eql(1)
+      expect(robot.facing).to eql('N')
+    end
+  end
 end

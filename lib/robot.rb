@@ -61,4 +61,25 @@ class Robot
       puts 'Position invalid'
     end
   end
+
+  def command_digest(command)
+    case command
+    when 'move'
+      move
+      puts 'move running'
+    when 'left'
+      left
+    when 'right'
+      right
+    when 'report'
+      report
+    when "place(x, 1, 'N')"
+      place(command.gsub(/place\(/, '').gsub(/\)/,''))
+    else
+      'Invalid command'
+    end
+  end
 end
+
+
+# TODO create a funtions that will digest the commands and not digest the ones that are invalid
